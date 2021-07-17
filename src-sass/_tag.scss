@@ -1,0 +1,25 @@
+@use "sass:map";
+
+.tag {
+    display: inline-block;
+    border: 1px solid map.get(map.get($theme-map, "colors"), "light");
+    text-transform: uppercase;
+    color: map.get(map.get($theme-map, "colors"), "grey");
+    padding: 0.5rem;
+    line-height: 1;
+    letter-spacing: 0.5px;
+
+    &.is-small {
+        padding: 0.4rem;
+        font-size: 0.75em;
+    }
+
+    &.is-large {
+        padding: 0.4rem;
+        font-size: 0.75em;
+    }
+
+    + .tag {
+        margin-left: 1rem;
+    }
+}

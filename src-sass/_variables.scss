@@ -1,0 +1,44 @@
+/* Breakpoints */
+$breakpoints: (
+    'sm': (
+        600px,
+        899px,
+    ),
+    'md': (
+        900px,
+        1199px,
+    ),
+    'lg': (
+        null,
+        1200px,
+    ),
+) !default;
+
+/* Theming */
+$color-map: (
+    'primary': #14854f,
+    'grey': #747681,
+    'light': #d2d6dd,
+    'dark': #3f4144,
+    'error': #d43939,
+    'success': #28bd14,
+    'white': #fff,
+) !default;
+
+$font-family-sans: -apple-system, BlinkMacSystemFont, Avenir, 'Avenir Next',
+    'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans',
+    'Droid Sans', 'Helvetica Neue', sans-serif !default;
+$font-family-mono: monaco, 'Consolas', 'Lucida Console', monospace !default;
+
+$theme-map: (
+    'bg-color': #ffffff,
+    'bg-secondary-color': #f3f3f6,
+    'colors': $color-map,
+    'breakpoints': $breakpoints,
+    'gridMaxWidth': 120rem,
+    'gridGutter': 2rem,
+    'font-size': 1.6rem,
+    'font-family-sans': $font-family-sans,
+    'font-family-mono': $font-family-mono,
+    'font-color': #333333,
+) !default;
