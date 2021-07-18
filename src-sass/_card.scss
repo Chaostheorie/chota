@@ -1,0 +1,21 @@
+@use 'sass:map';
+@import './functions';
+
+$colors: cget($theme-map, 'colors');
+$layout: cget($theme-map, 'layout');
+
+.card {
+  padding: 1rem 2rem;
+  border-radius: 4px;
+  background: cget($layout, 'bg-color');
+  box-shadow: 0 1px 3px cget($colors, 'grey');
+
+  p:last-child {
+    margin: 0;
+  }
+
+  header > * {
+    margin-top: 0;
+    margin-bottom: 1rem;
+  }
+}

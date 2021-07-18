@@ -6,8 +6,9 @@
   "scripts": {
     "start": "run-p docs watch",
     "docs": "jekyll s -s docs",
-    "build": "rimraf dist/* && yarn postcss &&  cross-env NODE_ENV=production yarn postcss --ext .min.css && gzip -c dist/chota.min.css  | wc -c | xargs echo 'Size:'",
-    "postcss": "postcss ./src/chota.css -d dist/",
+    "build": "rimraf dist/* && yarn run compile-sass && yarn postcss &&  cross-env NODE_ENV=production yarn postcss --ext .min.css && gzip -c dist/chota.min.css  | wc -c | xargs echo 'Size:'",
+    "compile-sass": "sass src-sass/chota.scss:dist/chota.css",
+    "postcss": "postcss ./dist/chota.css -d dist/",
     "watch": "cross-env NODE_ENV=development yarn postcss -w",
     "test": "echo \"Error: no test specified\" && exit 1",
     "prepublish": "yarn build"
@@ -45,5 +46,6 @@
   ],
   "browserslist": [
     "last 2 versions"
-  ]
+  ],
+  "dependencies": {}
 }

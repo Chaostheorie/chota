@@ -1,44 +1,70 @@
+@use "sass:list";
+
 /* Breakpoints */
 $breakpoints: (
-    'sm': (
-        600px,
-        899px,
-    ),
-    'md': (
-        900px,
-        1199px,
-    ),
-    'lg': (
-        null,
-        1200px,
-    ),
+  'sm': (
+    600px,
+    899px
+  ),
+  'md': (
+    900px,
+    1199px
+  ),
+  'lg': (
+    null,
+    1200px
+  )
 ) !default;
+
+/* Forms */
+$buttons: (
+  '.button',
+  "[type='button']",
+  "[type='reset']",
+  "[type='submit']",
+  'button'
+);
+
+/* Typography */
+$pull-directives: ('left', 'right', 'center');
+$nav-directives: ('flex-start', 'flex-end', 'center');
+$text-alignments: list.append($pull-directives, 'justify');
+$text-transforms: ('uppercase', 'lowercase', 'capitalize');
 
 /* Theming */
 $color-map: (
-    'primary': #14854f,
-    'grey': #747681,
-    'light': #d2d6dd,
-    'dark': #3f4144,
-    'error': #d43939,
-    'success': #28bd14,
-    'white': #fff,
+  'primary': #14854f,
+  'grey': #747681,
+  'light': #d2d6dd,
+  'dark': #3f4144,
+  'error': #d43939,
+  'success': #28bd14,
+  'white': #ffffff
 ) !default;
 
 $font-family-sans: -apple-system, BlinkMacSystemFont, Avenir, 'Avenir Next',
-    'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans',
-    'Droid Sans', 'Helvetica Neue', sans-serif !default;
+  'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans',
+  'Droid Sans', 'Helvetica Neue', sans-serif !default;
 $font-family-mono: monaco, 'Consolas', 'Lucida Console', monospace !default;
 
 $theme-map: (
+  'colors': $color-map,
+  'breakpoints': $breakpoints,
+  'layout': (
     'bg-color': #ffffff,
     'bg-secondary-color': #f3f3f6,
-    'colors': $color-map,
-    'breakpoints': $breakpoints,
+    'pull-directives': $pull-directives,
+    'nav-directives': $nav-directives,
+    'text-alignments': $text-alignments,
+    'text-transforms': $text-transforms,
     'gridMaxWidth': 120rem,
-    'gridGutter': 2rem,
-    'font-size': 1.6rem,
-    'font-family-sans': $font-family-sans,
-    'font-family-mono': $font-family-mono,
-    'font-color': #333333,
+    'gridGutter': 2rem
+  ),
+  'font': (
+    'size': 1.6rem,
+    'family-sans': $font-family-sans,
+    'family-mono': $font-family-mono,
+    'color': #333333
+  ),
+  'buttons': $buttons
 ) !default;
