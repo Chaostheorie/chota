@@ -1,32 +1,34 @@
 {
-  "name": "chota",
-  "version": "0.8.0",
-  "description": "A really small CSS framework",
-  "main": "dist/chota.min.css",
+  "name": "chotas",
+  "version": "0.1.0",
+  "description": "A really small SCSS framework",
+  "main": "sass/chota.scss",
   "scripts": {
     "start": "run-p docs watch",
     "docs": "jekyll s -s docs",
     "build": "rimraf dist/* && yarn run compile-sass && yarn postcss &&  cross-env NODE_ENV=production yarn postcss --ext .min.css && gzip -c dist/chota.min.css  | wc -c | xargs echo 'Size:'",
-    "compile-sass": "sass src-sass/chota.scss:dist/chota.css",
+    "compile-sass": "sass sass/chota.scss:dist/chota.css",
     "postcss": "postcss ./dist/chota.css -d dist/",
-    "watch": "cross-env NODE_ENV=development yarn postcss -w",
+    "watch": "cross-env NODE_ENV=development yarn sass sass/chota.scss:dist/chota.css --watch",
+    "format": "prettier --write sass",
+    "lint": "prettier --check  sass",
     "test": "echo \"Error: no test specified\" && exit 1",
     "prepublish": "yarn build"
   },
   "keywords": [
-    "css",
+    "scss",
     "minimal",
     "web"
   ],
-  "author": "Jenil Gogari",
+  "author": "Cobalt",
   "license": "MIT",
-  "homepage": "https://jenil.github.io/chota",
+  "homepage": "https://github.com/Chaostheorie/chota",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/jenil/chota.git"
+    "url": "git+https://github.com/Chaostheorie/chota.git"
   },
   "bugs": {
-    "url": "https://github.com/jenil/chota/issues"
+    "url": "https://github.com/Chaostheorie/chota/issues"
   },
   "devDependencies": {
     "autoprefixer": "^9.6.1",
@@ -36,6 +38,7 @@
     "postcss-cli": "^7.1.1",
     "postcss-csso": "^4.0.0",
     "postcss-import": "^12.0.1",
+    "prettier": "^2.3.2",
     "rimraf": "^3.0.0",
     "sass": "^1.35.2"
   },

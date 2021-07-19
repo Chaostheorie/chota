@@ -1,0 +1,73 @@
+@use 'sass:math';
+@import './functions';
+
+$layout: cget($theme-map, 'layout');
+$gutter: cget($layout, 'grid-gutter');
+$grid-cols: cget($layout, 'grid-cols') + 1;
+
+.container {
+    max-width: cget($layout, 'grid-max-width');
+    margin: 0 auto;
+    width: 96%;
+    padding: 0 math.div($gutter, 2);
+}
+
+.row {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+    margin-left: math.div($gutter, -2);
+    margin-right: math.div($gutter, -2);
+}
+
+.row.reverse {
+    flex-direction: row-reverse;
+}
+
+.col {
+    flex: 1;
+}
+
+.col,
+[class*=' col-'],
+[class^='col-'] {
+    margin: 0 math.div($gutter, 2) math.div($gutter, 2);
+}
+
+@for $i from 1 to $grid-cols {
+    .col-#{$i} {
+        flex: 0 0 (math.div(100, math.div(12, $i)) - $gutter);
+        max-width: (math.div(100, math.div(12, $i)) - $gutter);
+    }
+}
+
+@media screen and (max-width: 599px) {
+    .container {
+        width: 100%;
+    }
+
+    .col,
+    [class*='col-'],
+    [class^='col-'] {
+        flex: 0 1 100%;
+        max-width: 100%;
+    }
+}
+
+@media screen and (min-width: 900px) {
+    @for $i from 1 to $grid-cols {
+        .col-#{$i}-md {
+            flex: 0 0 (math.div(100, math.div(12, $i)) - $gutter);
+            max-width: (math.div(100, math.div(12, $i)) - $gutter);
+        }
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    @for $i from 1 to $grid-cols {
+        .col-#{$i}-lg {
+            flex: 0 0 (math.div(100, math.div(12, $i)) - $gutter);
+            max-width: (math.div(100, math.div(12, $i)) - $gutter);
+        }
+    }
+}

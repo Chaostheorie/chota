@@ -1,0 +1,36 @@
+@import './functions';
+
+$colors: cget($theme-map, 'colors');
+
+.tabs {
+    display: flex;
+
+    a {
+        text-decoration: none;
+    }
+
+    > .dropdown > summary,
+    > a {
+        padding: 1rem 2rem;
+        flex: 0 1 auto;
+        color: cget($colors, 'dark');
+        border-bottom: 2px solid cget($colors, 'light');
+        text-align: center;
+    }
+
+    .tabs > a[aria-current='page'],
+    > a.active,
+    > a:hover {
+        opacity: 1;
+        border-bottom: 2px solid cget($colors, 'dark');
+    }
+
+    > a[aria-current='page'],
+    > a.active {
+        border-color: cget($colors, 'primary');
+    }
+
+    &.is-full a {
+        flex: 1 1 auto;
+    }
+}

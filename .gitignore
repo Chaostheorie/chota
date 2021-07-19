@@ -103,6 +103,9 @@ dist
 # TernJS port file
 .tern-port
 
+.github
+postcss.config.js
+yarn.lock
 .jekyll-cache
 .idea
 .vscode

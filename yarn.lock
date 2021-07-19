@@ -228,7 +228,7 @@ coa@^2.0.2:
     chalk "^2.4.1"
     q "^1.1.2"
 
-color-convert@^1.9.0:
+color-convert@^1.9.0, color-convert@^1.9.3:
   version "1.9.3"
   resolved "https://registry.yarnpkg.com/color-convert/-/color-convert-1.9.3.tgz#bb71850690e1f136567de629d2d5471deda4c1e8"
   integrity sha512-QfAUtd+vFdAtFQcC8CCyYt1fYWxSqAiK2cSD6zDB8N3cpsEBAvRxp9zOGg6G/SHHJYAT88/az/IuDGALsNVbGg==
@@ -261,11 +261,11 @@ color-string@^1.6.0:
     simple-swizzle "^0.2.2"
 
 color@^3.0.0:
-  version "3.2.0"
-  resolved "https://registry.yarnpkg.com/color/-/color-3.2.0.tgz#108509078b8b93746515cbdffb03e20097ec586b"
-  integrity sha512-4ximSqKXLTQmYLJuvrRHtpOqniR+ASoaVK+Rxdy6ZpfsLvUqtIM7oGGgopRG+O4p9NRv/AfuVD3jsvdxyXqozQ==
+  version "3.2.1"
+  resolved "https://registry.yarnpkg.com/color/-/color-3.2.1.tgz#3544dc198caf4490c3ecc9a790b54fe9ff45e164"
+  integrity sha512-aBl7dZI9ENN6fUGC7mWpMTPNHmWUSNan9tuWN6ahh5ZLNk9baLJOnSMlrQkHcrfFgz2/RigjUVAjdx36VcemKA==
   dependencies:
-    color-convert "^2.0.1"
+    color-convert "^1.9.3"
     color-string "^1.6.0"
 
 colorette@^1.2.1, colorette@^1.2.2:
@@ -1542,6 +1542,11 @@ postcss@^7.0.0, postcss@^7.0.1, postcss@^7.0.27, postcss@^7.0.32, postcss@^7.0.7
     chalk "^2.4.2"
     source-map "^0.6.1"
     supports-color "^6.1.0"
+
+prettier@^2.3.2:
+  version "2.3.2"
+  resolved "https://registry.yarnpkg.com/prettier/-/prettier-2.3.2.tgz#ef280a05ec253712e486233db5c6f23441e7342d"
+  integrity sha512-lnJzDfJ66zkMy58OL5/NY5zp70S7Nz6KqcKkXYzn2tMVrNxvbqaBpg7H3qHaLxCJ5lNMsGuM8+ohS7cZrthdLQ==
 
 pretty-hrtime@^1.0.3:
   version "1.0.3"

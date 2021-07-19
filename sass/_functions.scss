@@ -1,0 +1,101 @@
+@use 'sass:list';
+@use 'sass:map';
+@use 'sass:selector';
+@use 'sass:meta';
+
+// checked get for map with warn when element not found
+@function cget($_map, $key) {
+    $element: map.get($_map, $key);
+
+    @if $element == null {
+        @warn "checked get failed on map with key " + $key;
+    }
+    @return $element;
+}
+
+@function suffix($list, $_suffix) {
+    $new-list: ();
+    $separator: list.separator($list);
+    @each $element in $list {
+        $new-list: list.append(
+            $new-list,
+            $element + $_suffix,
+            $separator: $separator
+        );
+    }
+    @return $new-list;
+}
+
+@function prefix($list, $_prefix) {
+    $new-list: ();
+    $separator: list.separator($list);
+    @each $element in $list {
+        $new-list: list.append(
+            $new-list,
+            unquote($_prefix) + unquote($element),
+            $separator: $separator
+        );
+    }
+    @return $new-list;
+}
+
+@function zipMap($list, $list2) {
+    $new-map: ();
+
+    $length: list.length($list);
+    @if $length != list.length($list2) {
+        @warn 'zipMap called on lists with different lengths';
+    }
+
+    @for $i from 1 to ($length + 1) {
+        $new-map: map.set($new-map, list.nth($list, $i), list.nth($list2, $i));
+    }
+
+    @return $new-map;
+}
+
+@function joinS($list, $list2) {
+    $new-list: ();
+    $separator: list.separator($list);
+    $length: list.length($list);
+    @if $length != list.length($list2) {
+        @warn 'joinS called on lists with different lengths';
+    }
+
+    @for $i from 1 to ($length + 1) {
+        $new-list: list.append(
+            $new-list,
+            selector.append(
+                unquote(list.nth($list, $i)),
+                unquote(list.nth($list2, $i))
+            ),
+            $separator: $separator
+        );
+    }
+    @return $new-list;
+}
+
+@mixin debug-map($map) {
+    @at-root {
+        __properties__ {
+            @each $key in $map {
+                //#{$key}: $value;
+                @debug inspect($key);
+            }
+        }
+    }
+}
+
+@function fillS($_selector, $length) {
+    $new-list: ();
+
+    @for $i from 1 to $length + 1 {
+        $new-list: list.append(
+            $new-list,
+            unquote($_selector),
+            $separator: 'comma'
+        );
+    }
+
+    @return $new-list;
+}

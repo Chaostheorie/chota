@@ -1,0 +1,22 @@
+@use 'sass:map';
+@import 'chotas/sass/variables';
+
+// Create your own color map
+$custom-color-map: (
+    // custom primary color
+    'primary': #404147
+);
+
+
+// create your own layout map
+$custom-layout-map: (
+    // change to 4 col system
+    'grid-cols': 4
+);
+
+
+// Merge the maps
+$color-map: map.merge($color-map, $custom-color-map);
+$layout-map: map.merge($layout-map, $custom-layout-map);
+
+@import 'chotas/sass/utilities';
